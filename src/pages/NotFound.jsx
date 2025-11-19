@@ -7,7 +7,7 @@ const NotFound = () => (
     <Helmet><title>404 | Pagina non trovata</title></Helmet>
     <h1 className="text-9xl font-bold text-[#00D9FF] mb-4">404</h1>
     <p className="text-xl text-gray-400 mb-8">Pagina non trovata.</p>
-    <Link to="/" className="px-8 py-4 bg-white text-black font-bold rounded-full">Torna alla Home</Link>
+    <Link to="/" className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors">Torna alla Home</Link>
   </div>
 );
 export default NotFound;

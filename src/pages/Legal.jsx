@@ -7,7 +7,7 @@ const Legal = ({ title, content }) => (
      <Helmet><title>{title} | Prima Studio</title></Helmet>
      <Link to="/" className="mb-8 text-gray-500 hover:text-white block">&larr; Torna alla Home</Link>
      <h1 className="text-5xl font-bold mb-8 text-white">{title}</h1>
-     <div className="prose prose-invert max-w-3xl"><p className="text-xl text-gray-400">{content}</p></div>
+     <div className="prose prose-invert max-w-3xl"><p className="text-xl text-gray-300 leading-relaxed">{content}</p></div>
   </div>
 );
 export default Legal;

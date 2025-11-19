@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,7 +9,6 @@ import Home from './pages/Home';
 import Works from './pages/Works';
 import Legal from './pages/Legal';
 import NotFound from './pages/NotFound';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -40,10 +40,7 @@ const App = () => {
       </main>
       <Footer setOpenCookies={setOpenCookies} />
       <CookieBanner openPreferences={openCookies} setOpenPreferences={setOpenCookies} />
-      <div>
-        {/* ... */}
-        <SpeedInsights />
-      </div>
+      <SpeedInsights />
     </div>
   );
 };
