@@ -7,9 +7,11 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') { res.status(200).end(); return; }
   if (req.method !== 'POST') { return res.status(405).json({ error: 'Method not allowed' }); }
 
+  const apiKey = process.env.VITE_RESEND_API_KEY;
   try {
     const { name, email, phone, message } = req.body;
     const apiKey = process.env.VITE_RESEND_API_KEY;
+    console.log("API Key letta dal server:", apiKey ? "Sì (Presente)" : "No (Mancante/Undefined)");
     if (!apiKey) return res.status(500).json({ error: 'API Key mancante' });
 
     const response = await fetch('https://api.resend.com/emails', {
