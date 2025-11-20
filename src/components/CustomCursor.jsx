@@ -6,12 +6,19 @@ const CustomCursor = () => {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    // Nascondi il cursore di default del browser quando il componente è attivo
-    document.body.style.cursor = 'none';
+    // 1. Nascondi il cursore di default in modo aggressivo
+    const style = document.createElement('style');
+    style.innerHTML = `
+      * { cursor: none !important; }
+      body, html { cursor: none !important; }
+    `;
+    style.id = 'cursor-style';
+    document.head.appendChild(style);
 
-    const move = (e) => { 
-      setPos({ x: e.clientX, y: e.clientY }); 
-      setVisible(true); 
+    const move = (e) => {
+      // Aggiornamento posizione immediato
+      setPos({ x: e.clientX, y: e.clientY });
+      setVisible(true);
     };
     
     const leave = () => setVisible(false);
@@ -25,9 +32,11 @@ const CustomCursor = () => {
     window.addEventListener('mousedown', down);
     window.addEventListener('mouseup', up);
     
-    // Pulizia: ripristina il cursore normale se il componente viene smontato
+    // Pulizia
     return () => {
-      document.body.style.cursor = 'auto';
+      const existingStyle = document.getElementById('cursor-style');
+      if (existingStyle) existingStyle.remove();
+      
       window.removeEventListener('mousemove', move);
       document.removeEventListener('mouseleave', leave);
       document.removeEventListener('mouseenter', enter);
@@ -36,9 +45,12 @@ const CustomCursor = () => {
     };
   }, []);
 
-  // Non renderizzare nulla se non è visibile (es. mouse fuori dalla finestra)
-  // O se siamo su dispositivi touch (lo controlliamo con CSS media query 'hidden lg:block')
   if (!visible) return null;
+
+  // Calcolo offset per centrare il cursore
+  // w-8 = 32px -> offset 16px
+  // w-6 = 24px -> offset 12px
+  const offset = clicked ? 12 : 16;
 
   return (
     <div 
@@ -46,6 +58,7 @@ const CustomCursor = () => {
         fixed pointer-events-none z-[9999]
         flex items-center justify-center rounded-full
         hidden lg:flex
+        /* Transizione SOLO su width, height, colori. MAI su transform o left/top per evitare lag */
         transition-[width,height,background-color,border-color] duration-150 ease-out
         ${clicked 
           ? 'w-6 h-6 bg-[#00D9FF] border-transparent mix-blend-normal' 
@@ -53,15 +66,14 @@ const CustomCursor = () => {
         }
       `}
       style={{ 
-        // Usiamo translate3d per forzare l'accelerazione GPU
-        // Sottraiamo metà della larghezza/altezza per centrare il cursore sulla punta del mouse
-        transform: `translate3d(${pos.x - (clicked ? 12 : 16)}px, ${pos.y - (clicked ? 12 : 16)}px, 0)`,
         left: 0,
         top: 0,
-        willChange: 'transform'
+        // Usa translate3d per performance GPU e posizionamento preciso
+        transform: `translate3d(${pos.x - offset}px, ${pos.y - offset}px, 0)`,
+        willChange: 'transform, width, height'
       }}
     >
-      {/* Puntino centrale */}
+      {/* Puntino centrale (visibile solo quando non cliccato) */}
       <div 
         className={`
           w-1 h-1 bg-white rounded-full 
