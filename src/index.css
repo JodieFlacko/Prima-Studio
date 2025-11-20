@@ -3,19 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  /* Rimuove il colore di highlight blu al tocco su mobile */
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
-  
-  /* Rimuove forzatamente outline e ring di focus da TUTTI gli elementi */
+  * { -webkit-tap-highlight-color: transparent; }
   *:focus, *:active, button:focus, a:focus {
     outline: none !important;
     box-shadow: none !important;
-    border-color: transparent; /* Reset di sicurezza */
+    border-color: transparent;
   }
-
-  /* Eccezione per gli input del form che gestiscono il loro bordo */
   input:focus, textarea:focus {
     border-color: #00D9FF !important;
     box-shadow: none !important;

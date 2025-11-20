@@ -1,6 +1,5 @@
 import React from 'react';
 import { SERVICES } from '../data/constants';
-
 const Services = () => (
   <section id="services" className="py-24 bg-[#050505] relative overflow-hidden" aria-labelledby="services-heading">
     <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#00D9FF]/5 rounded-full blur-[128px] pointer-events-none" />

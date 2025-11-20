@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Hero = () => {
   const scrollToServices = () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
   return (
@@ -13,8 +12,8 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 text-white">Plasmiamo il <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D9FF] via-white to-[#B721FF] animate-gradient">Futuro Digitale</span></h1>
           <p className="text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed">Trasformiamo aziende visionarie attraverso design sofisticato e tecnologia all'avanguardia.</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/works" className="group px-8 py-4 bg-[#00D9FF] hover:bg-[#00b8d9] text-black font-bold rounded-full hover:scale-105 transition-all flex items-center justify-center gap-2">Esplora i Lavori <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" /></Link>
-            <button onClick={scrollToServices} className="px-8 py-4 border border-white/20 hover:bg-white/5 hover:border-white/50 rounded-full font-medium transition-all text-white">I Nostri Servizi</button>
+            <Link to="/works" className="group px-8 py-4 bg-[#00D9FF] hover:bg-[#00b8d9] text-black font-bold rounded-full hover:scale-105 transition-all flex items-center justify-center gap-2 focus:outline-none">Esplora i Lavori <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" /></Link>
+            <button onClick={scrollToServices} className="px-8 py-4 border border-white/20 hover:bg-white/5 hover:border-white/50 rounded-full font-medium transition-all text-white focus:outline-none">I Nostri Servizi</button>
           </div>
         </div>
       </div>
