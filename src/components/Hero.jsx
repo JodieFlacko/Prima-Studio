@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   const scrollToServices = () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" aria-label="Introduzione">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true"><div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00D9FF]/10 rounded-full blur-[120px] animate-pulse-slow" /><div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#B721FF]/10 rounded-full blur-[120px] animate-pulse-slow delay-1000" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" /></div>
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden gpu" aria-label="Introduzione">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00D9FF]/10 rounded-full blur-[120px] animate-pulse-slow gpu" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#B721FF]/10 rounded-full blur-[120px] animate-pulse-slow delay-1000 gpu" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      </div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">
           <div className="inline-block px-4 py-1.5 mb-6 border border-[#00D9FF]/30 rounded-full bg-[#00D9FF]/5 backdrop-blur-md"><span className="text-[#00D9FF] text-xs font-bold tracking-widest uppercase">Agenzia Digitale Premium</span></div>

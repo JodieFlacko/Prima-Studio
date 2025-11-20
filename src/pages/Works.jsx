@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 const Works = () => (
   <div className="pt-32 pb-20 container mx-auto px-6 min-h-screen animate-in fade-in">
-    <Helmet><title>Progetti | Prima Studio</title><meta name="description" content="Esplora i nostri lavori più recenti." /></Helmet>
+    <Helmet><title>Progetti | Prima Studio</title><meta name="description" content="I nostri lavori." /></Helmet>
     <h1 className="text-5xl font-bold mb-6 text-center text-white">I Nostri Lavori</h1>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
       {PROJECTS.map((p) => (

@@ -1,8 +1,8 @@
 import React from 'react';
 import { SERVICES } from '../data/constants';
 const Services = () => (
-  <section id="services" className="py-24 bg-[#050505] relative overflow-hidden" aria-labelledby="services-heading">
-    <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#00D9FF]/5 rounded-full blur-[128px] pointer-events-none" />
+  <section id="services" className="py-24 bg-[#050505] relative overflow-hidden content-visibility-auto" aria-labelledby="services-heading">
+    <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#00D9FF]/5 rounded-full blur-[128px] pointer-events-none gpu" />
     <div className="container mx-auto px-6 relative z-10">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
         <div><h2 id="services-heading" className="text-4xl md:text-5xl font-bold mb-4 text-white">I Nostri Servizi</h2><div className="h-1 w-20 bg-gradient-to-r from-[#00D9FF] to-[#B721FF]" aria-hidden="true" /></div>

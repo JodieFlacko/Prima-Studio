@@ -6,7 +6,7 @@ import ProjectsSection from '../components/ProjectsSection';
 import ContactForm from '../components/ContactForm';
 const Home = () => (
   <div className="animate-in fade-in duration-700">
-    <Helmet><title>Prima Studio | Agenzia Web Design Premium</title><meta name="description" content="Trasformiamo aziende visionarie attraverso design sofisticato." /></Helmet>
+    <Helmet><title>Prima Studio | Agenzia Web Design Premium</title><meta name="description" content="Trasformiamo aziende visionarie." /></Helmet>
     <Hero />
     <Services />
     <ProjectsSection />
