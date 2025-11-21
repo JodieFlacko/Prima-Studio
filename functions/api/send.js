@@ -47,16 +47,3 @@ export async function onRequestPost(context) {
     return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
 }
-```
-
-### 2. Pulizia e Push su GitHub
-Ora prepara il progetto per GitHub:
-
-1.  **Elimina** il file `wrangler.toml` (non ti serve più).
-2.  **Elimina** il file `src/worker.js` (non ti serve più).
-3.  Assicurati che il tuo `ContactForm.jsx` sia quello aggiornato (che chiama `/api/send`).
-4.  Manda tutto su GitHub:
-    ```bash
-    git add .
-    git commit -m "Aggiunto supporto Functions per Cloudflare"
-    git push origin main
