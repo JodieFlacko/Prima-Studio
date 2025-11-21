@@ -4,7 +4,7 @@ export async function onRequestPost(context) {
     const body = await request.json();
 
     // Verifica che la chiave esista
-    if (!env.RESEND_API_KEY) {
+    if (!env.VITE_RESEND_API_KEY) {
       return new Response(JSON.stringify({ error: "Manca la API Key su Cloudflare" }), {
         status: 500,
         headers: { "Content-Type": "application/json" }
@@ -14,7 +14,7 @@ export async function onRequestPost(context) {
     const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+        "Authorization": `Bearer ${env.VITE_RESEND_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
