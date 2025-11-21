@@ -51,7 +51,6 @@ const App = () => {
       </main>
       <Footer setOpenCookies={setOpenCookies} />
       <CookieBanner openPreferences={openCookies} setOpenPreferences={setOpenCookies} />
-      <SpeedInsights />
     </div>
   );
 };
